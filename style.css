@@ -1,0 +1,796 @@
+/*
+Jessica Morrow
+Magic Stone Stylesheet
+
+Description: This stylesheet defines the visual styles for the Magic Stone project, including colors, fonts, and layout for various components of the application. It ensures a cohesive and visually appealing user interface across all pages and elements.
+
+font definitions:
+*/
+
+@font-face {
+  font-family: 'Intro'; /* Choose a name for your font */
+  src: url('fonts/intro/Intro.otf') format('truetype'); /* Fallbacks for older browsers */
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap; /* Helps optimize font loading behavior */
+}
+
+*{
+    margin: 0px;
+    padding: 0px;
+    border: 0px;
+}
+
+/* Header styles */
+
+.header {
+    width: 100%;
+}
+
+/* Row 1 */
+.top-bar {
+    background: rgb(93, 101, 108);
+    color: white;
+    padding: 10px;
+    text-align: right;
+    font-size: 12px;
+}
+
+/* Row 2 */
+.second-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 40px;
+    font-size: 12px;
+}
+
+.logo img{
+    height: 75px;
+    cursor: pointer;
+}
+
+/* Search section */
+.search-section{
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    background-color: white;
+    border-radius: 25px;       /* fully rounded corners */
+    border: 2px solid #d6d6d6;
+    width: 200px;               
+    transition: all 0.3s ease; 
+    
+}
+
+.search-section:focus,
+.search-section:focus-within {
+    background-color: #d6d6d6;    /* highlight background */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* subtle shadow */
+}
+
+.search-input {
+    appearance: none;
+    -webkit-appearance: none;
+    flex: 1;                   /* takes remaining space */
+    border: none;
+    outline: none !important;
+    background: transparent;
+    border-radius: 25px;       /* match container */
+    font-size: 14px;
+    padding: 5px 10px;
+    caret-color: black;
+}
+
+.search-input:focus {
+    outline: none !important;
+    border-radius: 25px; 
+}
+
+.search-button{
+    background-color: rgb(86, 86, 86);    /* dark blue button */
+    color: white;
+    border: none;
+    border-radius: 50%;        /* round button */
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+
+/* Row 3: Navigation */
+
+
+.navigation {
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 10px 40px;
+    border-top: 1px solid lightgrey;
+    font-size: 14px;
+    letter-spacing: 0.1em;
+}
+
+.nav-links {
+    display: flex;
+    grid-template-columns: repeat(5, auto) 1fr; 
+    list-style: none;
+    gap: 30px;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-links li {
+    position: relative;
+    list-style: none;
+    text-align: left;
+}
+
+.quick-shop {
+    margin-left: auto; 
+}
+
+.nav-links a,
+.quick-shop a {
+    text-decoration: none;
+    color: black;
+}
+
+/* Dropdown menu */
+.menu {
+    display: none;               /* hidden by default */
+    position: absolute;
+    top: 100%;                   
+    left: 40px;
+    width: fit-content;                
+    background: white;
+    padding: 40px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 1000;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.mobile-search {
+    display: none; 
+}
+
+.menu-toggle{
+    display: none; 
+}
+
+.sub-menu {
+    display:none;
+}
+
+.nav-arrow {
+    display:none;
+}
+
+#arrow {
+    display:none;
+}
+
+.dropdown {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.menu ul {
+    list-style: none;
+    padding: 0;
+}   
+
+.menu ul li a{
+    display: block;
+    padding: 5px 0px;
+    color: black;
+    text-decoration: none;
+}
+
+.dropdown li:first-child a {
+    font-weight: bold;
+    margin-bottom: 8px;
+    display: block;
+}
+
+
+.menu ul li a:hover {
+    color: lightgray;
+}
+
+.navigation:hover .menu {
+    display: grid;   /* show menu on hover */
+}
+
+/* Mobile menu toggle */
+.menu-toggle {
+    display: none; /* Hidden by default, shown on mobile */
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    margin-right: 15px;
+}
+
+
+/* Body content */ 
+/* Main carousel elements */
+
+
+.carousel {
+    position: relative;
+    width: 100%;
+    margin: auto;
+    overflow: hidden;
+}
+
+.slides {
+    position: relative;
+}
+
+.carousel-item {
+    display: none;
+    height: 600px;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    background: lightgray;
+    position: relative;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel-item.active {
+    display: flex;
+}
+.carousel-item:nth-child(1) img {
+    object-position: 10% 50%;
+}
+.carousel-item:nth-child(3) img {
+    object-position: 50% 95%;
+}
+.carousel-item:nth-child(4) img {
+    object-position: 50% 60%;
+}
+
+.carousel-dots {
+    position: absolute;
+    bottom : 15px;
+    left: 50%;           
+    transform: translateX(-50%); 
+    z-index: 100;
+  
+}
+
+.dot {
+    height: 12px;
+    width: 12px;
+    margin: 0 5px;
+    background-color: lightslategray;
+    border-radius: 50%;
+    display: inline-block;
+    cursor: pointer;
+}
+
+.dot.active {
+    background-color: rgb(46, 46, 46);
+}
+
+/* Carousel Captions */
+.carousel-captionright {
+    position: absolute;
+    right:0;
+    top: 55%;
+    width: 25%;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    color: rgb(46, 46, 46);
+}
+
+.carousel-captionright2 {
+    position: absolute;
+    right:0;
+    top: 55%;
+    width: 25%;
+    gap: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: center;
+    padding: 40px;
+    color: white;
+}
+
+.carousel-captionleft {
+    position: absolute;
+    left: 0;
+    top: 55%;
+    width: 30%;
+    display: flex;
+    gap: 5px;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 40px;
+    color: white; 
+}
+
+.carousel-captionbottom {
+    position: absolute;
+    display: flex;
+    left: 0;
+    top: 70%;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    text-align: left;
+    padding: 40px;
+    gap: 5px;
+    color: white; 
+}
+
+h6 {
+    font-size: 18px;
+    font-weight: normal;
+    letter-spacing: 0.02em;
+}
+
+.shop-now {
+    font-size: 14px;
+    text-align: left;;
+    color: rgb(46, 46, 46);
+    border: 1px solid rgb(46, 46, 46 );
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.shop-now:hover {
+    background-color: rgb(133, 133, 133);
+    border: 1px solid rgb(133, 133, 133);
+    color: white;
+}
+
+.shop-nowW {
+    font-size: 14px;
+    color: white;
+    border: 1px solid white;
+    border-radius: 25px;
+    padding: 5px 10px;
+    margin-top: 10px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.shop-nowW:hover {
+    background-color: rgb(133, 133, 133);
+    border: 1px solid rgb(133, 133, 133);
+    color: white;
+}
+
+h6 {
+    font-size: 16px;
+    font-style: normal;
+}
+
+/* Collage section */
+
+.collage {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    overflow: hidden;
+    border-radius: 10px;
+    gap: 30px;
+    padding: 50px 40px;
+}
+
+.collage-item img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+
+.shop-now2 {
+    font-size: 14px;
+    color: rgb(46, 46, 46);
+    border: 1px solid rgb(46, 46, 46);
+    border-radius: 25px;
+    padding: 5px 10px;
+    text-decoration: none;
+    width: fit-content;
+}
+
+.shop-now2:hover {
+    background-color: lightgray;
+    border: 1px solid lightgray;
+    color: black;
+}
+
+.collage-caption {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    align-items: flex start;
+    padding-top: 10px;
+}
+
+/* Footer styles */
+
+footer{
+    background: rgb(93, 101, 108);
+    padding: 20px 40px;
+    text-align: center;
+    width: 100%;
+    border-top: 2px solid lightgrey;
+    font-style: normal;
+
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-decoration: none;
+    align-items: start;
+    gap: 15px;
+}
+
+.footer-content ul
+{
+    text-align: left;
+    list-style: none;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    font-size: 12px;
+}
+
+.footer-content ul li a
+{
+    text-decoration: none;
+    color: white;
+}
+
+.footer-content h3
+{
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    padding: 5px 0px;
+}
+
+.footer-content h4
+{
+    text-align: left;
+    text-decoration: none;
+    color: white;
+    padding: 5px 0px;
+    letter-spacing: 0.02em;;
+}
+
+
+.Account-SubPage
+{
+    list-style: none;
+    text-decoration: none;
+    color: white;
+}
+
+.Social{
+    text-align: left;
+    padding-top: 20px;
+    color: white;
+    letter-spacing: 0.01em;
+}
+
+.hours{
+    text-align: left;
+    color: white;
+    font-size:12px;
+    letter-spacing: 0.02em;;
+}
+
+.social-media
+{
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 50%;
+    gap: 2px;
+    justify-items: flex-start;
+    padding: 10px 0px;
+}
+
+.social-media i {
+    font-size: 16px;
+}
+
+.social-media a:hover
+{
+    color: rgb(181, 181, 181);
+}
+
+.Policy-line{
+    grid-column: 1 / -1;;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    color: white;
+    font-size: 12px;
+}
+
+.Policy-line a {
+    text-decoration: none;
+    color: white;
+}
+
+/* Mobile Styles */
+
+@media (max-width: 768px) {
+
+    /* Header */
+    .second-header {
+        padding: 10px 20px;
+        font-size: 10px;
+    }
+
+    .logo img {
+        height: 55px;
+    }
+
+    .search-section {
+        display:none;
+        width: 130px;
+    }
+
+    /* Nav — collapse to hamburger */
+    .navigation {
+        padding: 10px 20px;
+        font-size: 12px;
+        flex-wrap: wrap;
+    }
+
+    .menu, .navigation:hover .menu {
+        visibility: hidden !important;
+        pointer-events: none !important;
+        opacity: 0 !important;
+    }
+
+    .menu-toggle {
+        display: block;
+        order: 1;
+    }
+
+    #arrow {
+        display:inline-block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        gap: 0;
+        width: 100%;
+        background: white;
+        padding: 10px 0;
+    }
+
+    .nav-links.open {
+        display: flex;
+    }
+
+    .nav-links li {
+        width: 100%;
+        border-bottom: 1px solid #eee;
+    }
+
+    .nav-links li a {
+        display: block;
+        padding: 10px 20px;
+    }
+
+    /* Arrow icon on category links */
+    .nav-arrow {
+        display:inline;
+        float: right;
+        transition: transform 0.25s ease;
+        font-size: 12px;
+        margin-top: 3px;
+    }
+
+    /* Sub-menu: hidden by default, animates open */
+    .sub-menu {
+        display: block;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        max-height: 0;
+        overflow: hidden;
+        background: #f7f7f7;
+        transition: max-height 0.3s ease;
+    }
+
+    .sub-menu li a {
+        padding: 10px 20px 10px 35px;
+        font-size: 13px;
+        color: #444;
+        border-bottom: 1px solid #eee;
+    }
+
+    .sub-menu li:last-child a {
+        border-bottom: none;
+    }
+
+    /* Search withing mobile menu */
+    .mobile-search {
+        display: block;
+        padding: 12px 5px;
+        width: 80%;
+        align-items: flex-start;
+        border-bottom: 1px solid #eee;
+    }
+
+    .mobile-search .search-section {
+        display: flex;
+        width: 325px;
+        border-radius: 25px;
+        border: 2px solid #cccccc;
+    }
+
+    .mobile-search .search-input {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    /* Hide mega menu on mobile, show inline subcategories */
+    .menu {
+        display: none !important;
+    }
+
+    .quick-shop {
+        display: none;
+    }
+
+    /* Carousel */
+    .carousel-item {
+        height: 350px;
+    }
+
+    .carousel-captionright,
+    .carousel-captionright2,
+    .carousel-captionleft,
+    .carousel-captionbottom {
+        width: 100%;
+        top: auto;
+        bottom: 40px;
+        left: 0;
+        right: 0;
+        padding: 10px 15px;
+        background: rgb(255, 255, 255, 0.9);
+        backdrop-filter: blur(2px);
+        letter-spacing: 0.01em;
+        color: rgb(46, 46, 46);
+    }
+
+    .carousel-captionright { color: rgb(46, 46, 46); }
+
+    .carousel-captionright h2,
+    .carousel-captionright2 h2,
+    .carousel-captionleft h2,
+    .carousel-captionbottom h2 {
+        font-size: 1.3rem;
+    }
+
+    h6 {
+        font-size: 13px;
+        font-weight: normal;
+    }
+
+    .shop-now,
+    .shop-nowW {
+        font-size: 11px;
+        padding: 4px 10px;
+        margin-top: 2px;
+        color: rgb(46, 46, 46);
+        border-color: rgb(46, 46, 46);
+    }
+
+   
+    /* Collage — stack to 1 column */
+    .collage {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    .collage-item img {
+        height: 180px;
+    }
+
+    /* Footer — 2 columns */
+    footer {
+        grid-template-columns: repeat(2, 1fr);
+        padding: 20px;
+        gap: 20px;
+        text-align: left;
+    }
+
+    .Policy-line {
+        grid-column: 1 / -1;
+    }
+}
+
+/* Small phone: 480px */
+@media (max-width: 480px) {
+
+    .second-header {
+        padding: 8px 15px;
+    }
+
+    .logo img {
+        height: 45px;
+    }
+
+    .search-section {
+        display:none;
+        width: 100px;
+    }
+
+    .search-input {
+        font-size: 11px;
+        padding: 3px 5px;
+    }
+
+    .shop-now,
+    .shop-nowW {
+        font-size: 11px;
+        padding: 4px 10px;
+        margin-top: 2px;
+        color: rgb(46, 46, 46);
+        border-color: rgb(46, 46, 46);
+    }
+
+    .search-button {
+        width: 30px;
+        height: 30px;
+    }
+
+    .carousel-item {
+        height: 260px;
+    }
+
+    .carousel-captionright h2,
+    .carousel-captionright2 h2,
+    .carousel-captionleft h2,
+    .carousel-captionbottom h2 {
+        font-size: 1.1rem;
+    }
+
+    h6 {
+        font-size: 12px;
+    }
+
+    /* Footer — single column */
+    footer {
+        grid-template-columns: 1fr;
+        padding: 20px 15px;
+    }
+
+    .social-media {
+        width: 40%;
+    }
+}
